@@ -1,5 +1,27 @@
 {
-  "devDependencies": {
+  "name": "38-jukebox_pro",
+  "version": "1.0.0",
+  "description": "Introducing Jukebox Pro, the successor to Jukebox! Users will now need to make an account and log in before they are able to manage their playlists.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.21.0",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
     "prisma": "^5.21.0"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.0.3",
+    "nodemon": "^3.1.7"
   }
 }
