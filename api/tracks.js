@@ -9,7 +9,7 @@ const prisma = require("../prisma");
 
 router.get("/", async (req, res, next) => {
   try {
-    const tracks = await prisma.tracks.findMany();
+    const tracks = await prisma.track.findMany();
     res.json(tracks);
   } catch (e) {
     next(e);
@@ -19,7 +19,7 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   const { id } = req.params;
   const includePlaylists = req.user
-    ? { where: { userId: req.user.id } }
+    ? { where: { ownerId: req.user.id } }
     : false;
   try {
     const track = await prisma.track.findUniqueOrThrow({

@@ -11,7 +11,6 @@ router.get("/", authenticate, async (req, res, next) => {
   try {
     const playlists = await prisma.playlist.findMany({
       where: { ownerId: req.user.id },
-      include: { playlist: true },
     });
     res.json(playlists);
   } catch (e) {
@@ -23,6 +22,7 @@ router.get("/", authenticate, async (req, res, next) => {
 router.post("/", authenticate, async (req, res, next) => {
   const { name, description, trackIds } = req.body;
   try {
+    const tracks = trackIds.map((id) => ({ id }));
     const playlist = await prisma.playlist.create({
       data: {
         name,
