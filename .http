@@ -26,7 +26,7 @@ GET {{host}}/playlists
 Authorization: Bearer {{token}}
 
 ### Get specific playlist
-GET {{host}}/playlists/2
+GET {{host}}/playlists/3
 Authorization: Bearer {{token}}
 
 ### Add new playlist
@@ -37,7 +37,7 @@ Content-Type: application/json
 {
   "name": "Playlist meme",
   "description": "Foobar baz wobble!",
-  "trackIds": [11,4,20]
+  "trackIds": [4,11,20]
 }
 
 ### Get all tracks
